@@ -1,0 +1,31 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-22 10:37:22
+ * @LastEditTime: 2020-09-22 10:38:40
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jQuery商城项目d:\编程练习\可视化练习\7.视区盒子.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7.视区盒子</title>
+    <style>
+        svg{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+       <!--没有设置视区盒子-->
+       <svg width="600" height="400">
+        <rect width="30" height="20" />
+    </svg>
+    <!--设置视区盒子-->
+    <svg width="600" height="400" viewBox="0 0 60 40">
+        <rect width="30" height="20" />
+    </svg>
+</body>
+</html>

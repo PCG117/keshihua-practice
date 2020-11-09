@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-23 09:28:43
+ * @LastEditTime: 2020-09-23 09:29:40
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \可视化练习\11.绘制图片.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制图片</title>
+    <style>
+        #canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas">
+    </canvas>
+</body>
+<script>
+    //获取canvas的DOM元素
+    var canvas = document.getElementById('canvas');
+    canvas.width = 600;
+    canvas.height = 600;
+    //获取canvas的上下文环境
+    var ctx = canvas.getContext('2d');
+    ctx.beginPath();
+    var img = new Image();
+    img.src = './img/girl.jpg';
+    img.onload = function(){
+        ctx.drawImage(img,0,0,200,200);
+    }
+</script>
+</html>

@@ -1,0 +1,81 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-22 08:34:15
+ * @LastEditTime: 2020-09-22 08:46:34
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jQuery商城项目d:\编程练习\可视化练习\3.拖拽事件2.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 400px;
+            height: 400px;
+            background: blue;
+        }
+        .target{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container"></div>
+    <div class="target" id="target" draggable='true'></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //被拖拽元素
+    $('#target')
+    //开始拖动时触发
+    .on('dragstart', function (ev) {
+        // console.log('target dragstart');
+    })
+    //拖动时触发
+    .on('drag', function () {
+        // console.log('target drag');
+    })
+    //拖拽结束时触发, 比如松开鼠标时
+    .on('dragend', function () {
+        // console.log('target dragend');
+    })
+
+    //容器元素
+    $('#container')
+    //被拖动元素进入容器时触发
+    .on('dragenter', function () {
+        console.log('container dragenter');
+    })
+    //被拖动元素离开容器时触发
+    .on('dragleave', function () {
+        console.log('container dragleave');
+    })      
+    //被拖动元素在容器中拖拽时触发
+    .on('dragover', function (ev) {
+        // console.log('container dragover');
+        ev.preventDefault();
+    })
+    //容器中的被拖动元素放置时触发        
+    .on('drop', function (ev) {
+        $('#container').append($('#target'));
+        console.log('container drop');
+    })
+    //容器中被拖动元素拖动时触发
+    .on('drag', function () {
+        console.log('container drag');
+    })
+    //容器中被拖动元素拖拽结束时触发
+    .on('dragend', function () {
+        console.log('container dragend');
+    })
+</script>
+</html>

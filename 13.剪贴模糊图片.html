@@ -1,0 +1,56 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-23 10:33:08
+ * @LastEditTime: 2020-09-24 16:20:30
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \可视化练习\13.剪贴模糊图片.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>剪贴模糊图片</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <img src="" alt="">
+        <canvas id="canvas"></canvas>
+    </div>
+    <button id="btn">显示</button>
+</body>
+<script>
+    var width=500
+    var height=600
+    var r=50
+    var canvas=document.getElementById('canvas')
+    canvas.width=width
+    canvas.height=height
+
+    var ctx=canvas.getContext('2d')
+    var img=new Image()
+    img.onload=function(){
+        ctx.drawImage(img,0,0,width,height)
+    }
+    img.src=''
+
+    ctx.save()
+    ctx.beginPath()
+    var x=Math.random()*(width-2*r)+r
+    var y=Math.random()*(height-2*r)+r
+    ctx.arc(x,y,r,0,2*Math.PI,false)
+    ctx.clip()
+
+    var btn=document.getElementById('btn')
+    btn.onclick=function(){
+        ctx.restore()
+        ctx.drawImage(img,0,0,width,height)
+        ctx.arc(x,y,width+height,0,2*Math.PI,false)
+        ctx.clip()
+    }
+</script>
+</html>

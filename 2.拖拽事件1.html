@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-22 08:03:45
+ * @LastEditTime: 2020-09-22 08:18:13
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \jQuery商城项目d:\编程练习\可视化练习\2.拖拽事件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.拖拽事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 400px;
+            height: 400px;
+            background: blue;
+        }
+        .target{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container"></div>
+    <div class="target" id="target" draggable="true"></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('#container')
+    .on('drop',function(ev){
+        $('#container').append($('#target'));
+    })
+    .on('dragover',function(ev){
+        // ev.preventDefault();
+        console.log('111')
+    });
+</script>
+</html>
